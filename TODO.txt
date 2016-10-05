@@ -1,0 +1,48 @@
+Versions of DONE [ LOCAL  INTEGRATION  TEST  PRE_PROD  PROD ]
+
+
+# Continuous Delivery Infrastructure
+deploy sonarqube
+[DONE LOCAL] jenkins build
+[DONE LOCAL] jenkins must use .ssh keys
+[DONE LOCAL] jenkins ssh agent plugin
+jenkins performance plugin
+    jmeter
+    gattling
+
+dockerize jenkins (with .ssh key)
+dockerize sonarqube
+
+Setup docker registry authentication
+[DONE LOCAL] Docker Registry UI
+tag git repository with build number
+
+# Deployment
+deploy logstash
+deploy elastic search
+deploy spring boot admin
+
+deploy spring cloud config or use consul
+
+# Code
+client discovery
+tcp logging
+
+implement unit tests
+implement integration tests
+implement acceptance tests
+
+create rabbitmq example
+
+Implement Event Sourcing
+
+Implement CQRS
+
+circuit breaker - hysterix - feign rest client
+redis
+mongodb
+cassandra
+
+#####
+http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+custom endpint @Bean Enpoint expose jms over http - consider for hot config.
