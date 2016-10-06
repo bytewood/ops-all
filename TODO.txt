@@ -1,48 +1,120 @@
 Versions of DONE [ LOCAL  INTEGRATION  TEST  PRE_PROD  PROD ]
 
 
+
 # Continuous Delivery Infrastructure
-deploy sonarqube
 [DONE LOCAL] jenkins build
 [DONE LOCAL] jenkins must use .ssh keys
 [DONE LOCAL] jenkins ssh agent plugin
 jenkins performance plugin
     jmeter
     gattling
-
 dockerize jenkins (with .ssh key)
+    add jenkins id_rsa.pub to github/gitlab
+    sudo usermod -aG docker jenkins
 dockerize sonarqube
+    external volume for mysql db
+dockerize artifactory
+    external volume
 
 Setup docker registry authentication
 [DONE LOCAL] Docker Registry UI
-tag git repository with build number
+
+[DONE LOCAL] tag git repository with build number
+
+
+
+# scaling {physical, vms, containers}
+    docker-machine
+    kubernetes
+    ansible,chef,puppet
+
+
 
 # Deployment
-deploy logstash
-deploy elastic search
-deploy spring boot admin
+Do we deploy independently
+    consumer-driven-contracts
+    automated tests
+docker-swarm-mode
+kubernetes
 
-deploy spring cloud config or use consul
+
+
+#Service Discoery
+Consul (with consul template and nginx) [bad]
+docker-swarm-mode (routing-mesh)
+Kubernetes
+
+
+
+# Logging
+logstash
+elastic search
+kibana
+docker logging drivers (log any container to logstash)
+correlation-id
+
+
+
+# Auditing / recon
+    correlation-id
+    event-sourcing
+
+
 
 # Code
 client discovery
 tcp logging
 
-implement unit tests
-implement integration tests
-implement acceptance tests
 
-create rabbitmq example
 
-Implement Event Sourcing
+# Testing
+unit tests
+integration tests
+acceptance tests
+load/performance tests
 
-Implement CQRS
 
+
+# Async
+Event Sourcing
+CQRS
+AMQP (or protocol buffers, zeromq, capnproto)
+
+
+
+# Reliability
 circuit breaker - hysterix - feign rest client
+
+
+
+# Caching / prefered DBMS
 redis
 mongodb
 cassandra
 
-#####
-http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
-custom endpint @Bean Enpoint expose jms over http - consider for hot config.
+
+
+# Monitoring
+spring boot admin
+Prometheus
+nagios
+Dynatrace (Licensed)
+
+
+
+#Documentation
+Xwiki
+
+
+
+# Issues
+How do we ensure contracts between microservices are not broken?
+    consumer-driven-contracts
+    acceptance tests
+How do we handle exceptions through a microservices chain?
+
+How do we handle Cascading Failures
+How do we handle Timeouts
+
+
